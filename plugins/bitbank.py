@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 # coding:utf-8
-from plugins import getinfo
+import slacker
+import getinfo
 import json
 from decimal import Decimal
 import sys, time
 import python_bitbankcc
+
 
 # class run(object):
 #
@@ -41,9 +43,15 @@ if __name__ == "__main__":
             target = "降下"
         else:
             target = "エラー"
-        sys.stdout.write(
-            "\r" + target + "　最新値段：" + last + "　買う数:" + str(sum_asks) + " 売る数" + str(sum_bids) + " timelag:" + str(
-                start - time.time())
-            )
-        sys.stdout.flush()
-        time.sleep(2)
+
+        mesg = target + "　最新値段：" + last + "　買う数:" + str(sum_asks) + " 売る数" + str(sum_bids) + " timelag:" + str(
+            start - time.time())
+
+        # sys.stdout.write(
+        #         #     "\r" + target + "　最新値段：" + last + "　買う数:" + str(sum_asks) + " 売る数" + str(sum_bids) + " timelag:" + str(
+        #         #         start - time.time())
+        #         #     )
+        #         # sys.stdout.flush()
+
+        slacker.slacker.sendMessage(mesg)
+        time.sleep(60)

@@ -27,7 +27,6 @@ def mention_func1(message):
     message.reply('なになに？') # メンション
 
 @listen_to('可愛い')
-@listen_to('かわいい')
 def listen_func(message):
     message.send('私のことなのね！')      # ただの投稿
     message.reply('ありがとう（てれ）')                           # メンション
