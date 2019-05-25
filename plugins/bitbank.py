@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding:utf-8
-import slacker
-import getinfo
+from slacker import Slacker
+from plugins.getinfo import *
 import json
 from decimal import Decimal
 import sys, time
@@ -12,7 +12,7 @@ import python_bitbankcc
 #
 #     def __init__(self):
 #         self.data=
-if __name__ == "__main__":
+def bitbankstart():
     pair_list = ("btc_jpy", "xrp_jpy", "ltc_btc", "eth_btc",
                  "mona_jpy", "mona_btc", "bcc_jpy", "bcc_btc")
     bitbank = "https://public.bitbank.cc"
@@ -46,12 +46,12 @@ if __name__ == "__main__":
 
         mesg = target + "　最新値段：" + last + "　買う数:" + str(sum_asks) + " 売る数" + str(sum_bids) + " timelag:" + str(
             start - time.time())
-
+        print(mesg)
         # sys.stdout.write(
         #         #     "\r" + target + "　最新値段：" + last + "　買う数:" + str(sum_asks) + " 売る数" + str(sum_bids) + " timelag:" + str(
         #         #         start - time.time())
         #         #     )
         #         # sys.stdout.flush()
 
-        slacker.slacker.sendMessage(mesg)
-        time.sleep(60)
+        # .sendMessage(mesg)
+        time.sleep(1)
