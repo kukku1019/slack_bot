@@ -11,10 +11,5 @@ def main():
     # bitbank.bitbankstart()
     tast = [executor.submit(bot.run()), executor.submit(bitbank.bitbankstart())]
     executor.shutdown()
-
-
-
-
-
 if __name__ == "__main__":
     main()
